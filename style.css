@@ -46,7 +46,11 @@ span {
   right: 2vw;
   bottom: 2.3vw;
 }
-.mail {
+/* .mail {
+  color: #666666;
+} */
+a {
+  text-decoration: none;
   color: #666666;
 }
 @media only screen and (max-width: 600px) {
