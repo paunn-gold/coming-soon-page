@@ -9,13 +9,25 @@
   </head>
   <body>
     <div class="container">
-      <img class="logo" src="assets/logo.png" />
+      <picture>
+        <source
+          class="logo jiggle"
+          srcset="assets/light-logo.png"
+          media="(prefers-color-scheme: light)"
+        />
+        <source
+          class="logo jiggle"
+          srcset="assets/dark-logo.png"
+          media="(prefers-color-scheme: dark)"
+        />
+        <img class="logo jiggle" src="assets/light-logo.png" />
+      </picture>
       <div class="description">coming soon</div>
       <div class="footer">
         <span class="left">EU</span>
         <span class="right">IND</span>
         <hr />
-        <div class="mail">
+        <div>
           <a href="mailto:info@paunn.com?subject=Enquiry%20from%20paunn.com"
             >info@paunn.com</a
           >

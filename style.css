@@ -14,7 +14,6 @@ body {
   transform: translateY(-50%);
   vertical-align: middle;
   max-width: 33%;
-  /* height: 100%; */
 }
 .description {
   font-weight: 100;
@@ -48,12 +47,8 @@ span {
   right: 2vw;
   bottom: 2.3vw;
 }
-/* .mail {
-  color: #666666;
-} */
 a {
   text-decoration: none;
-  color: #666666;
 }
 @media only screen and (max-width: 600px) {
   .description {
@@ -72,5 +67,34 @@ a {
   }
   .right {
     bottom: 4.7vw;
+  }
+}
+/* .jiggle {
+  animation: jiggle 0.2s infinite;
+}
+@keyframes jiggle {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+} */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #262626;
+    color: #f5f3ef;
+  }
+  a {
+    color: #999999;
+  }
+}
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: transparent;
+    color: #262626;
+  }
+  a {
+    color: #666666;
   }
 }
