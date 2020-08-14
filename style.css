@@ -57,7 +57,7 @@ a {
 }
 @media only screen and (max-width: 600px) {
   .description {
-    top: 45%;
+    top: 50%;
     font-size: 4vw;
   }
   .footer {
