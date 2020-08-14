@@ -82,7 +82,7 @@ a {
 } */
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #262626;
+    background-color: #000000;
     color: #f5f3ef;
   }
   a {
