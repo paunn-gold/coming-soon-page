@@ -9,7 +9,7 @@ body {
 .container {
   text-align: center;
 }
-.logo {
+#logo {
   margin: 35vh auto 0;
   transform: translateY(-50%);
   vertical-align: middle;
@@ -47,13 +47,29 @@ span {
   right: 2vw;
   bottom: 2.3vw;
 }
-a {
+.mail {
   text-decoration: none;
+}
+#switch-color {
+  position: fixed;
+  left: 38.7vw;
+  margin: 22vh auto 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 2px;
+  height: 14.4vw;
+  width: 14.4vw;
+  max-width: 33%;
 }
 @media only screen and (max-width: 600px) {
   .description {
     top: 50%;
     font-size: 4vw;
+  }
+  #switch-color {
+    margin: 32vh auto 0;
   }
   .footer {
     font-size: 3.5vw;
@@ -89,7 +105,7 @@ a {
     color: #999999;
   }
 }
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
   body {
     background-color: transparent;
     color: #262626;
