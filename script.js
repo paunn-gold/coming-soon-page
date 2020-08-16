@@ -1,6 +1,6 @@
 document.getElementById("switch-color").addEventListener("click", colorSwitch);
 let swap;
-if (window.matchMedia("prefers-color-scheme: light").matches) {
+if (window.matchMedia("(prefers-color-scheme: light)").matches) {
   swap = 1;
   document.getElementById("logo").src = "assets/light-logo.png";
 } else {
