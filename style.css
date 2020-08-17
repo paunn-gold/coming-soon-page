@@ -9,97 +9,102 @@ body {
 .container {
   text-align: center;
 }
-#logo {
-  margin: 35vh auto 0;
-  transform: translateY(-50%);
-  vertical-align: middle;
-  max-width: 33%;
+.logo {
+  margin: 300px auto 0;
+  max-width: 100%;
 }
 .description {
   font-weight: 100;
-  font-size: 2.3vw;
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-size: 32px;
+  margin-top: 80px;
 }
 .footer {
-  font-size: 1.7vw;
-  position: absolute;
-  top: 94%;
-  left: 50%;
+  font-size: 24px;
+  position: fixed;
+  top: 90%;
   width: 100%;
-  transform: translate(-50%, -50%);
 }
 hr {
-  width: 90%;
-  border-top: 0.5px solid black;
-  margin-left: 4.7vw;
+  width: calc(100% - 155px);
+  height: 1px;
+  border-top: 0px;
+  border-bottom: 0px;
+  background-color: #d1d3d4;
+  margin-left: 70px;
 }
 span {
   position: absolute;
 }
 .left {
-  left: 2vw;
-  bottom: 2.3vw;
+  left: 30px;
+  bottom: 32px;
 }
 .right {
-  right: 2vw;
-  bottom: 2.3vw;
+  right: 30px;
+  bottom: 32px;
 }
 .mail {
   text-decoration: none;
 }
 #switch-color {
-  position: fixed;
-  left: 38.7vw;
-  margin: 22vh auto 0;
   background-color: transparent;
+  position: fixed;
+  left: calc(50% - 140px);
+  top: 245px;
   border: none;
   cursor: pointer;
   outline: none;
   border-radius: 2px;
-  height: 14.4vw;
-  width: 14.4vw;
-  max-width: 33%;
+  height: 180px;
+  width: 180px;
 }
 #logo-overlay {
-  top: 0vw;
   position: fixed;
-  left: 38.7vw;
-  margin: 22vh auto 0;
+  left: calc(50% - 140px);
+  top: 245px;
   border: none;
   cursor: pointer;
   outline: none;
   border-radius: 2px;
-  height: 14.4vw;
-  width: 14.4vw;
-  max-width: 33%;
+  height: 180px;
+  width: 180px;
   z-index: -1;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 450px) {
+  .logo {
+    margin: 200px auto 0;
+    width: 275px;
+  }
   .description {
-    top: 50%;
-    font-size: 4vw;
+    margin-top: 50px;
+    font-size: 20px;
   }
   #switch-color {
-    margin: 31vh auto 0;
+    left: calc(50% - 95px);
+    top: 165px;
+    height: 120px;
+    width: 120px;
   }
   #logo-overlay {
-    margin: 31vh auto 0;
+    left: calc(50% - 95px);
+    top: 165px;
+    height: 120px;
+    width: 120px;
   }
   .footer {
-    font-size: 3.5vw;
+    font-size: 16px;
   }
   hr {
-    width: 80%;
-    margin-left: 8.7vw;
+    width: calc(100% - 105px);
+    margin-left: 50px;
   }
   .left {
-    bottom: 4.7vw;
+    left: 20px;
+    bottom: 22px;
   }
   .right {
-    bottom: 4.7vw;
+    right: 20px;
+    bottom: 22px;
   }
 }
 .jiggle {
@@ -119,21 +124,33 @@ span {
     color: #f5f3ef;
   }
   a {
-    color: #999999;
+    color: #bbbbbb;
   }
   #logo-overlay {
     background-color: #161616;
+  }
+  hr {
+    height: 1px;
+    border-top: 0px;
+    border-bottom: 0px;
+    background-color: #d1d3d4;
   }
 }
 @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
   body {
     background-color: transparent;
-    color: #161616;
+    color: #262626;
   }
   a {
-    color: #666666;
+    color: #444444;
   }
   #logo-overlay {
     background-color: #f5f3ef;
+  }
+  hr {
+    height: 1px;
+    border-top: 0px;
+    border-bottom: 0px;
+    background-color: #262626;
   }
 }
