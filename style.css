@@ -63,13 +63,30 @@ span {
   width: 14.4vw;
   max-width: 33%;
 }
+#logo-overlay {
+  top: 0vw;
+  position: fixed;
+  left: 38.7vw;
+  margin: 22vh auto 0;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 2px;
+  height: 14.4vw;
+  width: 14.4vw;
+  max-width: 33%;
+  z-index: -1;
+}
 @media only screen and (max-width: 600px) {
   .description {
     top: 50%;
     font-size: 4vw;
   }
   #switch-color {
-    margin: 32vh auto 0;
+    margin: 31vh auto 0;
+  }
+  #logo-overlay {
+    margin: 31vh auto 0;
   }
   .footer {
     font-size: 3.5vw;
@@ -85,7 +102,7 @@ span {
     bottom: 4.7vw;
   }
 }
-/* .jiggle {
+.jiggle {
   animation: jiggle 0.2s infinite;
 }
 @keyframes jiggle {
@@ -95,7 +112,7 @@ span {
   50% {
     transform: rotate(1deg);
   }
-} */
+}
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #000000;
@@ -104,13 +121,19 @@ span {
   a {
     color: #999999;
   }
+  #logo-overlay {
+    background-color: #161616;
+  }
 }
 @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
   body {
     background-color: transparent;
-    color: #262626;
+    color: #161616;
   }
   a {
     color: #666666;
+  }
+  #logo-overlay {
+    background-color: #f5f3ef;
   }
 }
