@@ -5,6 +5,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
+  height: 100%;
 }
 .container {
   text-align: center;
