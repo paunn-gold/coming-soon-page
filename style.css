@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100;300&display=swap");
 body {
   font-family: "Noto Sans SC", sans-serif;
+  height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
-  height: 100%;
 }
 .container {
   text-align: center;
@@ -30,7 +29,6 @@ hr {
   height: 1px;
   border-top: 0px;
   border-bottom: 0px;
-  background-color: #d1d3d4;
   margin-left: 70px;
 }
 span {
@@ -47,8 +45,7 @@ span {
 .mail {
   text-decoration: none;
 }
-#switch-color {
-  background-color: transparent;
+.frame {
   position: fixed;
   left: calc(50% - 140px);
   top: 245px;
@@ -59,16 +56,10 @@ span {
   height: 180px;
   width: 180px;
 }
+#switch-color {
+  background-color: transparent;
+}
 #logo-overlay {
-  position: fixed;
-  left: calc(50% - 140px);
-  top: 245px;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  border-radius: 2px;
-  height: 180px;
-  width: 180px;
   z-index: -1;
 }
 @media only screen and (max-width: 450px) {
@@ -80,13 +71,7 @@ span {
     margin-top: 50px;
     font-size: 20px;
   }
-  #switch-color {
-    left: calc(50% - 95px);
-    top: 165px;
-    height: 120px;
-    width: 120px;
-  }
-  #logo-overlay {
+  .frame {
     left: calc(50% - 95px);
     top: 165px;
     height: 120px;
@@ -121,37 +106,31 @@ span {
 }
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #000000;
-    color: #f5f3ef;
+    background-color: rgb(0, 0, 0);
+    color: rgb(245, 243, 239);
   }
   a {
-    color: #bbbbbb;
-  }
-  #logo-overlay {
-    background-color: #161616;
+    color: rgb(187, 187, 187);
   }
   hr {
-    height: 1px;
-    border-top: 0px;
-    border-bottom: 0px;
-    background-color: #d1d3d4;
+    background-color: rgb(209, 211, 212);
+  }
+  #logo-overlay {
+    background-color: rgb(22, 22, 22);
   }
 }
 @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
   body {
-    background-color: transparent;
-    color: #262626;
+    background-color: rgb(255, 255, 255);
+    color: rgb(22, 22, 22);
   }
   a {
-    color: #444444;
-  }
-  #logo-overlay {
-    background-color: #f5f3ef;
+    color: rgb(68, 68, 68);
   }
   hr {
-    height: 1px;
-    border-top: 0px;
-    border-bottom: 0px;
-    background-color: #262626;
+    background-color: rgb(38, 38, 38);
+  }
+  #logo-overlay {
+    background-color: rgb(245, 243, 239);
   }
 }
