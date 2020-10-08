@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100&display=swap");
+html,
+body {
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 24px;
+  height: 125%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: black;
+  color: white;
+  cursor: default;
+  /* overflow: hidden; */
+}
+canvas {
+  display: block;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.banner1 {
+  font-size: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background-color: #cfa355;
+  width: 100%;
+  height: 26px;
+}
+.banner2 {
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 16px;
+  position: sticky;
+  color: black;
+  top: 26px;
+  z-index: 3;
+  background-color: #f4f3ef;
+  width: 100%;
+  height: 26px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.logo {
+  position: sticky;
+  width: 225px;
+  top: 45%;
+  z-index: 3;
+}
+#logo-overlay {
+  position: fixed;
+  left: calc(50% - 78px);
+  top: calc(45% - 27px);
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  height: 99px;
+  width: 99px;
+  background-color: #161616;
+  z-index: 2;
+}
+.text1 {
+  position: sticky;
+  top: 45.5%;
+  z-index: 3;
+}
+.text2 {
+  position: sticky;
+  top: 40.9%;
+  z-index: 3;
+}
+.text3 {
+  position: sticky;
+  top: 40.9%;
+  z-index: 3;
+}
+.text4 {
+  position: sticky;
+  top: 31.5%;
+  z-index: 3;
+}
+.text5 {
+  font-size: 16px;
+  position: sticky;
+  top: 80%;
+  z-index: 3;
+}
+
+/* @media only screen and (min-width: 350px) and (min-height: 650px) {
+  .text2 {
+    top: 40%;
+  }
+  .text3 {
+    top: 40%;
+  }
+}
+
+@media only screen and (min-width: 350px) and (min-height: 800px) {
+  .text2 {
+    top: 40.8%;
+  }
+  .text3 {
+    top: 40.8%;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .text2 {
+    top: 40.4%;
+  }
+  .text3 {
+    top: 40.4%;
+  }
+} */
