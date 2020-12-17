@@ -31,6 +31,8 @@ window.addEventListener("resize", () => {
 const frame = document.querySelector(".frame-element");
 
 const update = () => {
+  let vh = window.innerHeight * 0.01;
+  document.body.style.setProperty("--vh", `${vh}px`);
   const elementHeight = document.querySelector(".scroll-area").clientHeight;
   const containerHeight = container.scrollHeight - elementHeight;
   const ratio = 100 / containerHeight;
@@ -68,73 +70,81 @@ const update = () => {
   const texts = document.querySelectorAll(".text-element");
 
   if ((progress / 20) % 1 == 0) {
+    let orientation =
+      window.innerWidth > window.innerHeight ? "landscape" : "portrait";
     let deviceWidth = window.innerWidth > 0 ? window.innerWidth : screen.width;
     let logoWidth, fontSize;
     let framePosition = Math.trunc(progress / 20),
-      bottom = [],
+      top = [],
       left = [],
       side = [],
       opacity = [];
-    if (deviceWidth <= 480) {
+    if (
+      (deviceWidth <= 480 && orientation == "portrait") ||
+      (deviceWidth <= 840 && orientation == "landscape")
+    ) {
       logoWidth = "250px";
       fontSize = "32px";
-      bottom = [
-        "calc(50% - 85px)",
-        "calc(50% - 59px)",
-        "calc(50% - 13px)",
-        "calc(50% - 109px)",
-        "calc(50% - 135px)",
-        "calc(50% - 135px)",
+      top = [
+        "calc(50vh - 60px)",
+        "calc(50vh - 10px)",
+        "calc(50vh - 57px)",
+        "calc(50vh + 36px)",
+        "calc(50vh - 60px)",
+        "calc(50vh - 60px)",
       ];
       left = [
-        "calc(50% - 81px)",
+        "calc(50% - 89px)",
         "calc(50% + 25px)",
         "calc(50% - 123px)",
         "calc(50% - 60px)",
-        "calc(50% - 81px)",
-        "calc(50% - 81px)",
+        "calc(50% - 89px)",
+        "calc(50% - 89px)",
       ];
-      side = ["100px", "33px", "33px", "33px", "100px", "100px"];
-    } else if (deviceWidth <= 960 && deviceWidth > 480) {
+      side = ["113px", "33px", "33px", "33px", "113px", "113px"];
+    } else if (
+      (deviceWidth <= 960 && deviceWidth > 480 && orientation == "portrait") ||
+      (deviceWidth <= 1200 && deviceWidth > 840 && orientation == "landscape")
+    ) {
       logoWidth = "425px";
       fontSize = "40px";
-      bottom = [
-        "calc(50% - 110px)",
-        "calc(50% - 55px)",
-        "calc(50% + 2px)",
-        "calc(50% - 112px)",
-        "calc(50% - 170px)",
-        "calc(50% - 170px)",
+      top = [
+        "calc(50vh - 90px)",
+        "calc(50vh - 11px)",
+        "calc(50vh - 71px)",
+        "calc(50vh + 46px)",
+        "calc(50vh - 90px)",
+        "calc(50vh - 90px)",
       ];
       left = [
-        "calc(50% - 137px)",
+        "calc(50% - 145px)",
         "calc(50% + 32px)",
         "calc(50% - 153px)",
         "calc(50% - 74px)",
-        "calc(50% - 137px)",
-        "calc(50% - 137px)",
+        "calc(50% - 145px)",
+        "calc(50% - 145px)",
       ];
-      side = ["170px", "40px", "40px", "40px", "170px", "170px"];
+      side = ["185px", "40px", "40px", "40px", "185px", "185px"];
     } else {
       logoWidth = "675px";
       fontSize = "48px";
-      bottom = [
-        "calc(50% - 140px)",
-        "calc(50% - 32px)",
-        "calc(50% + 37px)",
-        "calc(50% - 101px)",
-        "calc(50% - 210px)",
-        "calc(50% - 210px)",
+      top = [
+        "calc(50vh - 150px)",
+        "calc(50vh - 17px)",
+        "calc(50vh - 85px)",
+        "calc(50vh + 53px)",
+        "calc(50vh - 150px)",
+        "calc(50vh - 150px)",
       ];
       left = [
-        "calc(50% - 217px)",
+        "calc(50% - 235px)",
         "calc(50% + 37px)",
         "calc(50% - 184px)",
         "calc(50% - 90px)",
-        "calc(50% - 217px)",
-        "calc(50% - 217px)",
+        "calc(50% - 235px)",
+        "calc(50% - 235px)",
       ];
-      side = ["270px", "50px", "50px", "50px", "270px", "270px"];
+      side = ["300px", "50px", "50px", "50px", "300px", "300px"];
     }
     opacity = [1, 1, 1, 1, 1, 0];
     logos.forEach((logo) => {
@@ -143,7 +153,7 @@ const update = () => {
     texts.forEach((text) => {
       text.style.fontSize = fontSize;
     });
-    frame.style.bottom = bottom[framePosition];
+    frame.style.top = top[framePosition];
     frame.style.left = left[framePosition];
     frame.style.height = side[framePosition];
     frame.style.width = side[framePosition];
