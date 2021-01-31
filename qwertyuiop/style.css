@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* .debug {
+  position: fixed;
+  background: red;
+  top: 0;
+  z-index: 999;
+  left: 0;
+}
+
+.resolution {
+  position: fixed;
+  background: blue;
+  top: 0;
+  z-index: 999;
+  right: 0;
+} */
+
+.language-toggle {
+  position: fixed;
+  cursor: pointer;
+  padding: 7px;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  font-size: 20px;
+}
+
+.active {
+  color: #fff;
+}
+
+.text-container {
+  pointer-events: none;
+}
+
+.text-element {
+  pointer-events: none;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  z-index: 2;
+  touch-action: none;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.5, 0, 0.5, 1) 25ms;
+}
+
+.text-element > span {
+  max-width: 800px;
+  text-align: center;
+  color: white;
+  font-weight: 100;
+  letter-spacing: 2px;
+}
+
+.text-element > div {
+  max-width: 800px;
+  height: 80vh;
+  text-align: center;
+  color: white;
+  font-weight: 100;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.frame-container {
+  pointer-events: none;
+}
+
+.frame-element {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: #161616;
+  touch-action: none;
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  color: #cfa355;
+  transition: opacity 1s cubic-bezier(0.5, 0, 0.5, 1) 25ms;
+}
+
+.location {
+  position: absolute;
+  bottom: 0;
+  font-weight: 200;
+  width: 100%;
+  text-align: center;
+  color: #cfa355;
+}
+
+.scroll-container {
+  background-image: url(assets/background-image.jpg);
+  background-size: cover;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.scroll-area {
+  height: 100vh;
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-area:nth-of-type(1) {
+  background-image: url(assets/1.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.scroll-area:nth-of-type(2) {
+  background-image: url(assets/2.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.scroll-area:nth-of-type(3) {
+  background-image: url(assets/3.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.scroll-area:nth-of-type(4) {
+  background-image: url(assets/4.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.scroll-area:nth-of-type(5) {
+  background-image: url(assets/5.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.scroll-area:nth-of-type(6) {
+  background-image: url(assets/6.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.footer-container {
+  flex-grow: 1;
+  font-weight: 200;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+footer {
+  color: #bbb;
+  line-height: 1.5;
+}
+footer a {
+  text-decoration: none;
+  color: #eee;
+}
+a:hover {
+  text-decoration: underline;
+}
+.ft-title {
+  color: #fff;
+  font-size: 22px;
+  padding-bottom: 10px;
+}
+.ft-main {
+  padding: 15px 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.ft-main-item {
+  padding: 20px;
+  min-width: 200px;
+}
+form {
+  padding-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+input[type="email"] {
+  border: 0;
+  padding: 10px;
+  margin-top: 5px;
+  width: 175px;
+  border-radius: 4px 0px 0px 4px;
+}
+input[type="submit"] {
+  background-color: #cfa355;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  padding: 10px 15px;
+  margin-top: 5px;
+  border-radius: 0px 4px 4px 0px;
+  -webkit-appearance: none;
+}
+.ft-social {
+  padding: 0 30px 10px;
+}
+.ft-social-list {
+  display: flex;
+  justify-content: center;
+  border-top: 1px #777 solid;
+  padding-top: 10px;
+}
+.ft-social-list li {
+  margin: 8px;
+  font-size: 20px;
+}
+.ft-legal {
+  padding: 10px 10px;
+  background-color: #333;
+}
+.ft-legal-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.ft-legal-list li {
+  margin: 2px 7px;
+  white-space: nowrap;
+}
+.ft-legal-list li:nth-last-child(2) {
+  flex-grow: 1;
+}
+.icons {
+  width: 30px;
+  height: auto;
+}
