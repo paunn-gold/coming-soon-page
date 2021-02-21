@@ -135,7 +135,7 @@ const update = () => {
   ) {
     number = 17;
     deviceType = "mobile";
-    parallaxMultiplier = 80;
+    parallaxMultiplier = 100;
   } else if (
     (deviceWidth <= 960 && deviceWidth > 480 && orientation == "portrait") ||
     (deviceWidth <= 1200 && deviceWidth > 840 && orientation == "landscape")
@@ -146,23 +146,15 @@ const update = () => {
   } else {
     number = 18;
     deviceType = "dektop";
-    parallaxMultiplier = 200;
+    parallaxMultiplier = 300;
   }
 
   for (let i = 0; i < 6; i++) {
     if (isElementVisible(scrollSections[i])) {
-      if (i == 0) {
-        scrollSections[i].style.backgroundPositionY =
-          (scrollSections[i].getBoundingClientRect().top / elementHeight) *
-            parallaxMultiplier +
-          "px";
-      } else {
-        scrollSections[i].style.backgroundPositionY =
-          (scrollSections[i].getBoundingClientRect().top / elementHeight) *
-            parallaxMultiplier -
+      scrollSections[i].style.backgroundPositionY =
+        (scrollSections[i].getBoundingClientRect().top / elementHeight) *
           parallaxMultiplier +
-          "px";
-      }
+        "px";
     }
   }
 
@@ -321,15 +313,15 @@ const update = () => {
           "calc(50vh - 150px)",
           "calc(50vh - 29px)",
           "calc(50vh - 102px)",
-          "calc(50vh - 102px)",
+          "calc(50vh - 30px)",
           "calc(50vh - 65px)",
           "calc(50vh - 65px)",
         ];
         left = [
           "calc(50% - 235px)",
           "calc(50% + 148px)",
-          "calc(50% + 222px)",
-          "calc(50% + 187px)",
+          "calc(50% - 248px)",
+          "calc(50% + 229px)",
           "calc(50% + 155px)",
           "calc(50% + 155px)",
         ];
