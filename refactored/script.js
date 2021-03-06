@@ -33,38 +33,49 @@ window.addEventListener("load", () => {
 
 /* language switch module */
 let userLanguage = navigator.language || navigator.userLanguage;
-let de = document.querySelector(".de");
-let en = document.querySelector(".en");
+let languageSwitch = document.querySelector("#switch");
 let html = document.querySelector("html");
 let language;
 
 if (userLanguage == "de") {
   language = "german";
   html.lang = "de";
-  de.classList.add("language-active");
-  en.classList.remove("language-active");
+  languageSwitch.innerHTML = "EN";
 } else if (userLanguage != "de") {
   language = "english";
   html.lang = "en";
-  de.classList.remove("language-active");
-  en.classList.add("language-active");
+  languageSwitch.innerHTML = "DE";
 }
 
-de.addEventListener("click", function () {
-  language = "german";
-  html.lang = "de";
-  de.classList.add("language-active");
-  en.classList.remove("language-active");
+languageSwitch.addEventListener("click", function () {
+  if (language == "german") {
+    language = "english";
+    html.lang = "en";
+    languageSwitch.innerHTML = "DE";
+  } else if (language == "english") {
+    language = "german";
+    html.lang = "de";
+    languageSwitch.innerHTML = "EN";
+  }
   update();
 });
 
-en.addEventListener("click", function () {
-  language = "english";
-  html.lang = "en";
-  de.classList.remove("language-active");
-  en.classList.add("language-active");
-  update();
-});
+let successMessage,
+  errorMessage,
+  breakLine = "";
+let deviceType = window
+  .getComputedStyle(document.body, ":before")
+  .content.replace(/\"/g, "");
+if (deviceType == "desktop") {
+  breakLine = "<br />";
+}
+if (language == "english") {
+  successMessage = `THANK YOU FOR TAKING PART IN THE QUIZ.<br/> YOU WILL RECEIVE AN EMAIL SHORTLY${breakLine}WITH THE DISCOUNT CODE.`;
+  errorMessage = "SOMETHING WENT WRONG.<br/> PLEASE TRY AGAIN.";
+} else if (language == "german") {
+  successMessage = "";
+  errorMessage = "";
+}
 
 // email module
 const scriptURL =
@@ -77,8 +88,7 @@ form.addEventListener("submit", (e) => {
   fetch(scriptURL, { method: "POST", body: new FormData(form) })
     .then((response) => {
       console.log("Email added successfully!", response);
-      emailStatus.innerHTML =
-        "THANK YOU FOR TAKING PART IN THE QUIZ.<br/> YOU WILL RECEIVE AN EMAIL SHORTLY WITH THE DISCOUNT CODE.";
+      emailStatus.innerHTML = successMessage;
 
       let quizTexts = document.querySelectorAll(".correct + label");
       quizTexts.forEach((quizText) => {
@@ -94,7 +104,7 @@ form.addEventListener("submit", (e) => {
     })
     .catch((error) => {
       console.error("Email module error!", error.message);
-      emailStatus.innerHTML = "SOMETHING WENT WRONG.<br/> PLEASE TRY AGAIN.";
+      emailStatus.innerHTML = errorMessage;
       document.querySelector(".send").disabled = false;
     });
 });
@@ -103,10 +113,23 @@ const frame = document.querySelector(".frame-element");
 const text = document.querySelector(".text");
 const scrollSections = document.querySelectorAll(".scroll-section");
 const scrollAreas = document.querySelectorAll(".scroll-area");
+
 const update = () => {
   const elementHeight = document.querySelector(".scroll-section").clientHeight;
 
-  let contentText, quizText;
+  let deviceType = window
+    .getComputedStyle(document.body, ":before")
+    .content.replace(/\"/g, "");
+  let contentText,
+    quizText,
+    breakLine = "",
+    breakLineMobile = "";
+  if (deviceType == "desktop") {
+    breakLine = "<br />";
+  }
+  if (deviceType == "mobile") {
+    breakLineMobile = "<br />";
+  }
   if (language == "english") {
     contentText = [
       '<img class="logo" src="assets/paunn-logo.png" alt="logo">',
@@ -119,9 +142,9 @@ const update = () => {
     quizText = [
       'L<span id="au">Au</span>NCHING SUMMER \'21',
       "ANSWER 3 SIMPLE QUESTIONS <br />& WIN 21% OFF ON YOUR FIRST ORDER!",
-      'HOW MANY TIMES DID Au<br />APPEAR IN THIS PAGE?<br /><input type="radio" value="4" /><label>4</label><br /><input type="radio" value="5" /><label>5</label><br /><input type="radio" value="6" class="correct" /><label>6</label>',
-      'WHAT IS THE SCIENTIFIC<br />SYMBOL OF GOLD?<br /><input type="radio" value="Fe" /><label>Fe</label><br /><input type="radio" value="Go" /><label>Go</label><br /><input type="radio" value="Au" class="correct" /><label>Au</label>',
-      'WHAT DOES PAuNN OFFER?<br /><br /><input type="radio" value="gold jewellery" class="correct"/><label>GOLD JEWELLERY</label><br /><input type="radio" value="silverware" /><label>SILVERWARE</label><br /><input type="radio" value="clothing" /><label>CLOTHING</label>',
+      `HOW MANY TIMES DID Au<br />APPEAR IN THIS PAGE?<br /><input type="radio" value="4" /><label>4</label>${breakLine}<input type="radio" value="5" /><label>5</label>${breakLine}<input type="radio" value="6" class="correct" /><label>6</label>`,
+      `WHAT IS THE SCIENTIFIC<br />SYMBOL OF GOLD?<br /><input type="radio" value="Fe" /><label>Fe</label>${breakLine}<input type="radio" value="Go" /><label>Go</label>${breakLine}<input type="radio" value="Au" class="correct" /><label>Au</label>`,
+      `WHAT DOES PAuNN OFFER?${breakLine}<br /><input type="radio" value="gold jewellery" class="correct"/><label>GOLD JEWELLERY</label>${breakLine}<input type="radio" value="silverware" /><label class='margin-right'>SILVERWARE</label><br /><input type="radio" value="clothing" /><label>CLOTHING</label>`,
       " ENTER YOUR EMAIL ADDRESS<br />TO RECEIVE THE DISCOUNT COUPON",
     ];
   } else if (language == "german") {
@@ -134,12 +157,12 @@ const update = () => {
       "",
     ];
     quizText = [
-      'L<span id="au">Au</span>NCHING SUMMER \'21',
-      "BEANTWORTE DREI EINFACHE FRAGEN <br />& SICHER DIR 21% RABATT AUF DEINE ERSTE BESTELLUNG!",
-      'WIE OFT FINDEST DU DAS<br />Au AUF UNSERER WEBSEITE?<br /><input type="radio" value="4" /><label>4</label><br /><input type="radio" value="5" /><label>5</label><br /><input type="radio" value="6" class="correct" /><label>6</label>',
-      'WAS IST DAS RICHTIGE<br />ELEMENTSYMBOL FÜR GOLD?<br /><input type="radio" value="Fe" /><label>Fe</label><br /><input type="radio" value="Go" /><label>Go</label><br /><input type="radio" value="Au" class="correct" /><label>Au</label>',
-      'WAS BIETEN WIR DIR?<br /><br /><input type="radio" value="gold jewellery" class="correct"/><label>GOLDSCHMUCK</label><br /><input type="radio" value="silverware" /><label>BESTECK</label><br /><input type="radio" value="clothing" /><label>KLEIDUNG</label>',
-      "<span>TRAGE DEINEN E-MAIL ADDRESSE<br />EIN UND ERHALTE IM ANSCHLUSS DEINEN GUTSCHEIN</span>",
+      'L<span id="au">Au</span>NCHING SOMMER \'21',
+      `BEANTWORTE DREI EINFACHE FRAGEN <br />& SICHER DIR 21% RABATT AUF${breakLineMobile}DEINE ERSTE BESTELLUNG!`,
+      `WIE OFT FINDEST DU DAS<br />Au AUF UNSERER WEBSEITE?<br /><input type="radio" value="4" /><label>4</label>${breakLine}<input type="radio" value="5" /><label>5</label>${breakLine}<input type="radio" value="6" class="correct" /><label>6</label>`,
+      `WAS IST DAS RICHTIGE<br />ELEMENTSYMBOL FÜR GOLD?<br /><input type="radio" value="Fe" /><label>Fe</label>${breakLine}<input type="radio" value="Go" /><label>Go</label>${breakLine}<input type="radio" value="Au" class="correct" /><label>Au</label>`,
+      `WAS BIETEN WIR DIR?${breakLine}<br /><input type="radio" value="gold jewellery" class="correct"/><label>GOLDSCHMUCK</label>${breakLine}<input type="radio" value="silverware" /><label>BESTECK</label><br /><input type="radio" value="clothing" /><label>KLEIDUNG</label>`,
+      "<span>TRAGE DEINEN E-MAIL ADDRESSE EIN UND<br />ERHALTE IM ANSCHLUSS DEINEN GUTSCHEIN</span>",
     ];
   }
 
@@ -147,40 +170,8 @@ const update = () => {
   let quizSubHead = document.querySelector(".quiz-subhead");
   let quiz = document.querySelectorAll(".quiz");
   let quizSection = document.querySelector(".quiz-section");
-  let parallaxMultiplier = 200;
-  let deviceType = window
-    .getComputedStyle(document.body, ":before")
-    .content.replace(/\"/g, "");
-  let imageIterationCounter;
-  for (let i = 0; i < 6; i++) {
-    let imagePosition = scrollAreas[i].getBoundingClientRect().top;
 
-    if (isElementVisible(scrollAreas[i])) {
-      scrollSections[i].style.backgroundPositionY =
-        (imagePosition / elementHeight) * parallaxMultiplier + "px";
-    }
-
-    if (
-      imagePosition < 0.4 * elementHeight &&
-      imagePosition > -0.4 * elementHeight
-    ) {
-      text.innerHTML = contentText[i];
-      quizHead.innerHTML = quizText[0];
-      quizSubHead.innerHTML = quizText[1];
-      quiz[0].innerHTML = quizText[2];
-      quiz[1].innerHTML = quizText[3];
-      quiz[2].innerHTML = quizText[4];
-      quizSection.innerHTML = quizText[5];
-
-      imageIterationCounter = i;
-      text.style.opacity = 1;
-      frame.style.opacity = 1;
-      break;
-    } else {
-      text.style.opacity = 0;
-      frame.style.opacity = 0;
-    }
-  }
+  let parallaxMultiplier;
   let top, left, side, frameBackgroundColor;
   if (deviceType == "mobile") {
     if (language == "english") {
@@ -219,6 +210,7 @@ const update = () => {
       ];
     }
     side = ["113px", "32px", "32px", "32px", "32px", "0px"];
+    parallaxMultiplier = 100;
   } else if (deviceType == "tablet") {
     if (language == "english") {
       top = [
@@ -256,12 +248,13 @@ const update = () => {
       ];
     }
     side = ["185px", "52px", "52px", "52px", "52px", "0px"];
+    parallaxMultiplier = 100;
   } else if (deviceType == "desktop") {
     if (language == "english") {
       top = [
         "calc(50vh - 150px)",
         "calc(50vh - 30px)",
-        "calc(50vh - 100px)",
+        "calc(50vh - 102px)",
         "calc(50vh + 45px)",
         "calc(50vh - 30px)",
         "calc(50vh - 30px)",
@@ -271,8 +264,8 @@ const update = () => {
         "calc(50% + 41px)",
         "calc(50% - 227px)",
         "calc(50% - 129px)",
-        "calc(50% + 87px)",
-        "calc(50% + 87px)",
+        "calc(50% + 86.5px)",
+        "calc(50% + 86.5px)",
       ];
     } else if (language == "german") {
       top = [
@@ -287,12 +280,13 @@ const update = () => {
         "calc(50% - 232px)",
         "calc(50% + 148px)",
         "calc(50% - 248px)",
-        "calc(50% + 229px)",
+        "calc(50% + 227px)",
         "calc(50% + 155px)",
         "calc(50% + 155px)",
       ];
     }
-    side = ["296px", "62px", "62px", "62px", "62px", "0px"];
+    side = ["296px", "64px", "64px", "64px", "64px", "0px"];
+    parallaxMultiplier = 200;
   }
   frameBackgroundColor = [
     "#fff",
@@ -302,6 +296,38 @@ const update = () => {
     "#cfa355",
     "#cfa355",
   ];
+  let imageIterationCounter;
+  for (let i = 0; i < 6; i++) {
+    let imagePosition = scrollAreas[i].getBoundingClientRect().top;
+
+    if (isElementVisible(scrollAreas[i])) {
+      scrollSections[i].style.backgroundPositionY =
+        (imagePosition / elementHeight) * parallaxMultiplier -
+        parallaxMultiplier / 2 +
+        "px";
+    }
+
+    if (
+      imagePosition < 0.35 * elementHeight &&
+      imagePosition > -0.35 * elementHeight
+    ) {
+      text.innerHTML = contentText[i];
+      quizHead.innerHTML = quizText[0];
+      quizSubHead.innerHTML = quizText[1];
+      quiz[0].innerHTML = quizText[2];
+      quiz[1].innerHTML = quizText[3];
+      quiz[2].innerHTML = quizText[4];
+      quizSection.innerHTML = quizText[5];
+
+      imageIterationCounter = i;
+      text.style.opacity = 1;
+      frame.style.opacity = 1;
+      break;
+    } else {
+      text.style.opacity = 0;
+      frame.style.opacity = 0;
+    }
+  }
   frame.style.top = top[imageIterationCounter];
   frame.style.left = left[imageIterationCounter];
   frame.style.height = side[imageIterationCounter];
