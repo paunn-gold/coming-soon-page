@@ -156,8 +156,8 @@ input[type="radio"]:checked {
   cursor: pointer;
   border: 0;
   margin-top: 20px;
-  padding: 8px 16px;
-  border-radius: 8px 8px 8px 8px;
+  padding: 5px 15px;
+  border-radius: 10px;
   font-size: 14px;
   -webkit-text-stroke: 0.5px #fff;
   -webkit-appearance: none;
@@ -350,7 +350,7 @@ input[type="radio"]:checked {
     border: 0;
     margin-top: 12px;
     padding: 4px 8px;
-    border-radius: 10%;
+    border-radius: 7px;
     font-size: 10px;
     -webkit-text-stroke: 0.5px #fff;
     -webkit-appearance: none;
@@ -365,6 +365,131 @@ input[type="radio"]:checked {
 
   .scroll-area {
     margin-bottom: 0px;
+  }
+
+  .footer-container {
+    display: grid;
+    justify-items: center;
+    height: 335px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #000;
+    pointer-events: none;
+    grid-template:
+      ". . . " 20px
+      ". contact . " 45px
+      ". . . " 15px
+      ". follow . " 30px
+      ". icon . " 30px
+      ". . . " 10px
+      ". input . " 50px
+      ". button . " 35px
+      ". . . " 25px
+      ". terms . " 20px
+      ". privacy . " 20px
+      ". copyright . " 20px
+      ". . . " 20px/
+      1fr 250px 1fr;
+  }
+
+  .footer-contact {
+    text-align: center;
+    grid-area: contact;
+  }
+
+  .mail {
+    pointer-events: auto;
+  }
+
+  #subscribe,
+  #subscribe:focus {
+    pointer-events: auto;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    border: none;
+    border-bottom: 0.5px solid #fff;
+    padding: 10px;
+    padding-bottom: 4px;
+    outline: none;
+    width: 200px;
+    color: #fff;
+    text-align: center;
+    font-weight: 100;
+    font-size: 14px;
+    letter-spacing: normal;
+    caret-color: #fff;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+  }
+
+  .footer-input {
+    grid-area: input;
+    font-size: 14px;
+  }
+  .footer-button {
+    grid-area: button;
+    align-self: end;
+    pointer-events: auto;
+  }
+
+  .footer-follow {
+    grid-area: follow;
+    align-self: center;
+  }
+
+  .footer-icon {
+    grid-area: icon;
+    align-self: center;
+    margin-top: 5px;
+    pointer-events: auto;
+  }
+  .footer-copyright {
+    grid-area: copyright;
+    font-size: 10px;
+    align-self: center;
+    color: #6a6a6a;
+  }
+  .footer-terms {
+    grid-area: terms;
+    font-size: 10px;
+    align-self: center;
+    pointer-events: auto;
+  }
+  .footer-privacy {
+    grid-area: privacy;
+    font-size: 10px;
+    align-self: center;
+    pointer-events: auto;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .terms {
+    color: #6a6a6a;
+  }
+
+  .icon {
+    width: 25px;
+    height: 25px;
+    margin: 8px;
+  }
+
+  #update {
+    background-color: #cfa355;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+    padding: 5px 15px;
+    border-radius: 7px;
+    font-size: 14px;
+    -webkit-text-stroke: 0.5px #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
   }
 }
 
@@ -477,10 +602,15 @@ input[type="radio"]:checked {
   }
 
   .quiz-container {
+    pointer-events: none;
     min-width: 800px;
     max-width: 900px;
     min-height: 525px;
     max-height: 625px;
+  }
+
+  input[type="radio"] {
+    pointer-events: auto;
   }
 
   .quiz-head {
@@ -510,106 +640,119 @@ input[type="radio"]:checked {
 
   .quiz-form {
     font-size: 16px;
+    pointer-events: auto;
   }
 
   .scroll-area {
     margin-bottom: 250px;
   }
-}
 
-/* old css */
-.footer-container {
-  flex-grow: 1;
-  font-weight: 200;
-  background-color: #000;
-  color: #bbb;
-  line-height: 1.5;
-}
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-a {
-  text-decoration: none;
-  color: #eee;
-}
-a:hover {
-  text-decoration: underline;
-}
-.ft-title {
-  color: #fff;
-  /* font-size: 22px; */
-  padding-bottom: 10px;
-}
-.ft-main {
-  padding: 15px 25px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.ft-main-item {
-  padding: 20px;
-  min-width: 350px;
-}
-.ft-form {
-  padding-top: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  /* font-size: 16px; */
-}
-.ft-email {
-  border: 0;
-  padding: 10px;
-  margin-top: 5px;
-  width: 175px;
-  border-radius: 4px 0px 0px 4px;
-  font-size: inherit;
-}
-.subscribe {
-  background-color: #cfa355;
-  color: #fff;
-  cursor: pointer;
-  border: 0;
-  padding: 10px 15px;
-  margin-top: 5px;
-  border-radius: 0px 4px 4px 0px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  font-size: inherit;
-}
-.ft-social {
-  padding: 0 30px 10px;
-}
-.ft-social-list {
-  display: flex;
-  justify-content: center;
-  border-top: 1px #777 solid;
-  padding-top: 10px;
-}
-.ft-social-list li {
-  margin: 8px;
-  font-size: 20px;
-}
-.ft-legal {
-  padding: 10px 10px;
-  background-color: #222;
-  /* margin-bottom: 75px; */
-}
-.ft-legal-list {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-.ft-legal-list li {
-  margin: 2px 7px;
-  white-space: nowrap;
-}
-.ft-legal-list li:nth-last-child(2) {
-  flex-grow: 1;
-}
-.icons {
-  width: 30px;
-  height: auto;
+  .footer-container {
+    display: grid;
+    justify-items: center;
+    height: 215px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #000;
+    pointer-events: none;
+    grid-template:
+      ". . . . . " 25px
+      ". contact . input . " 50px
+      ". icon . button . " 50px
+      ". . . . . " 50px
+      ". terms copyright privacy . " 25px
+      ". . . . . " 15px/
+      1fr 300px 300px 300px 1fr;
+  }
+
+  .footer-contact {
+    text-align: center;
+    grid-area: contact;
+  }
+
+  .mail {
+    pointer-events: auto;
+  }
+
+  #subscribe,
+  #subscribe:focus {
+    pointer-events: auto;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    border: none;
+    border-bottom: 0.5px solid #fff;
+    padding: 10px;
+    padding-bottom: 4px;
+    outline: none;
+    width: 250px;
+    color: #fff;
+    text-align: center;
+    font-weight: 100;
+    letter-spacing: normal;
+    caret-color: #fff;
+  }
+
+  .footer-input {
+    grid-area: input;
+    /* align-self: end; */
+  }
+  .footer-follow {
+    display: none;
+  }
+  .footer-button {
+    grid-area: button;
+    align-self: center;
+    pointer-events: auto;
+  }
+  .footer-icon {
+    grid-area: icon;
+    align-self: center;
+    margin-top: 10px;
+    pointer-events: auto;
+  }
+  .footer-copyright {
+    grid-area: copyright;
+    font-size: 14px;
+    align-self: center;
+  }
+  .footer-terms {
+    grid-area: terms;
+    font-size: 14px;
+    align-self: center;
+    pointer-events: auto;
+  }
+  .footer-privacy {
+    grid-area: privacy;
+    font-size: 14px;
+    align-self: center;
+    pointer-events: auto;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .icon {
+    width: 25px;
+    height: 25px;
+    margin: 8px;
+  }
+
+  #update {
+    background-color: #cfa355;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    -webkit-text-stroke: 0.5px #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+  }
 }
 
 /* scroll bar */
