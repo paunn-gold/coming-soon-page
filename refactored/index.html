@@ -8,6 +8,11 @@
       type="image/x-icon"
       href="assets/paunn-icon.ico"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>PAuNN - Welcome</title>
   </head>
@@ -18,9 +23,21 @@
     <div class="text-container">
       <div class="text-element"><span class="text"></span></div>
     </div>
-    <div class="frame-container">
-      <div class="frame-element"><span class="frame-text">munich</span></div>
+    <div class="logo-container">
+      <div class="logo-element">
+        <img
+          class="logo"
+          src="assets/paunn-logo.webp"
+          width="4092"
+          height="755"
+          alt="logo"
+        />
+      </div>
+      <div class="frame-element">
+        <span class="frame-text">munich</span>
+      </div>
     </div>
+    <div class="background-container"></div>
     <div class="scroll-container">
       <div class="scroll-area"><div class="scroll-section img-1"></div></div>
       <div class="scroll-area"><div class="scroll-section img-2"></div></div>
@@ -56,14 +73,15 @@
                   <input class="send" type="submit" value="SUBMIT" />
                 </div>
               </form>
-              <div class="email-status"></div>
+              <div id="success" style="display: none"></div>
+              <div id="fail" style="display: none"></div>
             </div>
           </div>
         </div>
       </div>
       <div class="footer-container">
         <div class="footer-contact">
-          <div>CONTACT</div>
+          <div class="contact"></div>
           <div>
             <a
               class="mail"
@@ -77,28 +95,32 @@
           <input
             id="subscribe"
             type="email"
-            placeholder="ENTER EMAIL ADDRESS"
             autocomplete="off"
+            placeholder="EMAIL"
             onfocus="this.placeholder = ''"
-            onblur="this.placeholder = 'ENTER EMAIL ADDRESS'"
+            onblur="this.placeholder='EMAIL'"
           />
         </div>
-        <div class="footer-follow">FOLLOW</div>
+        <div class="footer-follow"></div>
         <div class="footer-icon">
           <a href="#"
             ><img
               class="icon"
               src="assets/pinterest-icon.svg"
+              width="50"
+              height="50"
               alt="pinterest-icon" /></a
           ><a href="#"
             ><img
               class="icon"
               src="assets/instagram-icon.svg"
+              width="50"
+              height="50"
               alt="instagram-icon"
           /></a>
         </div>
         <div class="footer-button">
-          <input id="update" type="submit" value="STAY UPDATED" />
+          <input id="update" type="submit" />
         </div>
         <div class="footer-copyright">&copy; 2021 PAUNN</div>
         <div class="footer-terms">
