@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/paunn-icon.ico"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>PAuNN - Welcome</title>
+  </head>
+  <body>
+    <div class="language-toggle">
+      <span id="switch"></span>
+    </div>
+    <div class="text-container">
+      <div class="text-element"><span class="text"></span></div>
+    </div>
+    <div class="logo-container">
+      <div class="logo-element">
+        <img
+          class="logo"
+          src="assets/paunn-logo.webp"
+          width="4092"
+          height="755"
+          alt="logo"
+        />
+      </div>
+      <div class="frame-element">
+        <span class="frame-text">munich</span>
+      </div>
+    </div>
+    <div class="background-container"></div>
+    <div class="scroll-container">
+      <div class="scroll-area"><div class="scroll-section img-1"></div></div>
+      <div class="scroll-area"><div class="scroll-section img-2"></div></div>
+      <div class="scroll-area"><div class="scroll-section img-3"></div></div>
+      <div class="scroll-area"><div class="scroll-section img-4"></div></div>
+      <div class="scroll-area"><div class="scroll-section img-5"></div></div>
+      <div class="scroll-area margin-0">
+        <div class="scroll-section img-6">
+          <div class="quiz-container">
+            <div class="quiz-head"></div>
+            <div class="quiz-subhead"></div>
+            <div class="quiz-content">
+              <div class="quiz"></div>
+              <div class="quiz"></div>
+              <div class="quiz"></div>
+            </div>
+            <div class="quiz-section"></div>
+            <div class="quiz-form">
+              <form name="discount-coupon-list" id="form1">
+                <div>
+                  <input
+                    id="email"
+                    name="Email"
+                    type="email"
+                    placeholder="EMAIL"
+                    required
+                    autocomplete="off"
+                    onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'EMAIL'"
+                  />
+                </div>
+                <span id="tooltip">Enter email</span>
+                <div>
+                  <input class="send" type="submit" value="SUBMIT" />
+                </div>
+              </form>
+              <div id="success" style="display: none"></div>
+              <div id="fail" style="display: none"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form name="newsletter-list" id="form2">
+        <div class="footer-container">
+          <div class="footer-contact">
+            <div class="contact"></div>
+            <div>
+              <a
+                class="mail"
+                href="mailto:info@paunn.com?subject=Enquiry%20from%20paunn.com"
+              >
+                INFO@PAUNN.COM
+              </a>
+            </div>
+          </div>
+          <div class="footer-input">
+            <input
+              id="subscribe"
+              type="email"
+              name="Email"
+              autocomplete="off"
+              placeholder="EMAIL"
+              required
+              onfocus="this.placeholder = ''"
+              onblur="this.placeholder='EMAIL'"
+            />
+          </div>
+          <div class="footer-follow"></div>
+          <div class="footer-icon">
+            <a href="#"
+              ><img
+                class="icon"
+                src="assets/pinterest-icon.svg"
+                width="50"
+                height="50"
+                alt="pinterest-icon" /></a
+            ><a href="#"
+              ><img
+                class="icon"
+                src="assets/instagram-icon.svg"
+                width="50"
+                height="50"
+                alt="instagram-icon"
+            /></a>
+          </div>
+          <div class="footer-button">
+            <input id="update" type="submit" />
+          </div>
+          <div class="footer-copyright">&copy; 2021 PAUNN</div>
+          <div class="footer-terms">
+            <a class="terms" href="#">TERMS & CONDITIONS</a>
+          </div>
+          <div class="footer-privacy">
+            <a class="terms" href="#">PRIVACY POLICY</a>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
