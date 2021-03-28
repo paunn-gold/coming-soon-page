@@ -21,7 +21,9 @@
       <span id="switch"></span>
     </div>
     <div class="text-container">
-      <div class="text-element"><span class="text"></span></div>
+      <div class="text-element">
+        <span class="text"></span>
+      </div>
     </div>
     <div class="logo-container">
       <div class="logo-element">
@@ -69,31 +71,43 @@
                     onblur="this.placeholder = 'EMAIL'"
                   />
                 </div>
-                <span id="tooltip">Enter email</span>
+                <div id="tooltip"></div>
                 <div>
                   <input class="send" type="submit" value="SUBMIT" />
                 </div>
               </form>
-              <div id="success" style="display: none"></div>
-              <div id="fail" style="display: none"></div>
+              <div id="success"></div>
+              <div id="fail"></div>
             </div>
           </div>
         </div>
       </div>
       <form name="newsletter-list" id="form2">
         <div class="footer-container">
-          <div class="footer-contact">
-            <div class="contact"></div>
-            <div>
-              <a
-                class="mail"
-                href="mailto:info@paunn.com?subject=Enquiry%20from%20paunn.com"
-              >
-                INFO@PAUNN.COM
-              </a>
-            </div>
+          <div class="footer-head">ALWAYS FIRST!</div>
+          <div class="footer-follow">FOLLOW US</div>
+          <div class="footer-info">
+            BE THE FIRST TO KNOW WHEN WE LAUNCH AND GET EARLY ACCESS TO
+            EXCLUSIVE PRICES BEFORE EVERYONE
           </div>
-          <div class="footer-input">
+          <div class="footer-social">
+            <a href="https://www.pinterest.com/pAunngold/"
+              ><img
+                class="icon"
+                src="assets/pinterest-icon.svg"
+                width="50"
+                height="50"
+                alt="pinterest-icon" /></a
+            ><a href="https://www.instagram.com/paunn.gold/"
+              ><img
+                class="icon"
+                src="assets/instagram-icon.svg"
+                width="50"
+                height="50"
+                alt="instagram-icon"
+            /></a>
+          </div>
+          <div class="footer-email">
             <input
               id="subscribe"
               type="email"
@@ -104,39 +118,28 @@
               onfocus="this.placeholder = ''"
               onblur="this.placeholder='EMAIL'"
             />
+            <input id="update" type="submit" value="STAY UPDATED" />
           </div>
-          <div class="footer-follow"></div>
-          <div class="footer-icon">
-            <a href="#"
-              ><img
-                class="icon"
-                src="assets/pinterest-icon.svg"
-                width="50"
-                height="50"
-                alt="pinterest-icon" /></a
-            ><a href="#"
-              ><img
-                class="icon"
-                src="assets/instagram-icon.svg"
-                width="50"
-                height="50"
-                alt="instagram-icon"
-            /></a>
+          <div class="footer-contact">
+            <div class="contact">CONTACT</div>
+            <a
+              class="mail"
+              href="mailto:info@paunn.com?subject=Enquiry%20from%20paunn.com"
+            >
+              INFO@PAUNN.COM
+            </a>
           </div>
-          <div class="footer-button">
-            <input id="update" type="submit" />
+          <div class="footer-alert"><div id="tooltip1"></div></div>
+          <div class="footer-terms">TERMS & CONDITIONS</div>
+          <div class="footer-copyright">
+            <span style="font-weight: 300">&copy;</span> 2021 PAUNN
           </div>
-          <div class="footer-copyright">&copy; 2021 PAUNN</div>
-          <div class="footer-terms">
-            <a class="terms" href="#">TERMS & CONDITIONS</a>
-          </div>
-          <div class="footer-privacy">
-            <a class="terms" href="#">PRIVACY POLICY</a>
-          </div>
+          <div class="footer-privacy">PRIVACY POLICY</div>
+          <div class="footer-blank-1"></div>
+          <div class="footer-blank-2"></div>
         </div>
       </form>
     </div>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="script.js"></script>
   </body>
 </html>
